@@ -29,7 +29,7 @@ export default function MotionComponentChanges() {
           <Input value={y} set={setY}>
             y
           </Input>
-          <Input value={scale} set={setScale} min={0} max={2} step={0.1}>
+          <Input value={scale} set={setScale} min={0.5} max={2} step={0.1}>
             scale
           </Input>
           <Input value={rotate} set={setRotate} min={-180} max={180}>

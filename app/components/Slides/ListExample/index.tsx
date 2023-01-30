@@ -30,21 +30,36 @@ export default function ListExample() {
   return (
     <div className="prose">
       <h1>List Example</h1>
-      <input
-        className="input input-bordered w-full mb-6"
-        placeholder="what needs to be done?"
-        onKeyUp={(e) => e.key === "Enter" && add(e.target)}
-      />
-      <div className="flex flex-col gap-2">
-        {todos.map(({ id, done, description }) => (
-          <div
-            key={id}
-            className="border py-2 px-4 flex justify-between gap-4]"
-          >
-            <div>{description}</div>
-            <button onClick={() => remove(id)}>✅</button>
+      <div className="flex gap-4 flex-wrap">
+        <div className="flex-1 prose">
+          <h3>What's wrong with this?</h3>
+          <ul>
+            <li>Elements appear and disappear instantly</li>
+            <li>Siblings shift into position right away</li>
+            <li>Hard to keep track of the list</li>
+            <li>
+              (Show <code>Framer Motion</code> example)
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1">
+          <input
+            className="input input-bordered w-full mb-6"
+            placeholder="what needs to be done?"
+            onKeyUp={(e) => e.key === "Enter" && add(e.target)}
+          />
+          <div className="flex flex-col gap-2">
+            {todos.map(({ id, done, description }) => (
+              <div
+                key={id}
+                className="border py-2 px-4 flex justify-between gap-4]"
+              >
+                <div>{description}</div>
+                <button onClick={() => remove(id)}>✅</button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

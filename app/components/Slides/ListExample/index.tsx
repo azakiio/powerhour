@@ -10,7 +10,7 @@ let initialTodos = [
   { id: uid++, done: false, description: "fix some bugs" },
 ];
 
-export default function Slide2() {
+export default function ListExample() {
   const [todos, setTodos] = useState(initialTodos);
   const add = (input: any) => {
     const todo = {
@@ -23,18 +23,26 @@ export default function Slide2() {
     input.value = "";
   };
 
+  const remove = (id: number) => {
+    setTodos(todos.filter((t) => t.id !== id));
+  };
+
   return (
-    <div className="max-w-xs w-full">
+    <div className="prose">
+      <h1>List Example</h1>
       <input
-        className="form-input w-full mb-8"
+        className="input input-bordered w-full mb-6"
         placeholder="what needs to be done?"
-        onKeyDown={e => e.key === "Enter" && add(e.target)}
+        onKeyUp={(e) => e.key === "Enter" && add(e.target)}
       />
       <div className="flex flex-col gap-2">
         {todos.map(({ id, done, description }) => (
-          <div key={id} className="border py-2 px-4 flex justify-between gap-4]">
+          <div
+            key={id}
+            className="border py-2 px-4 flex justify-between gap-4]"
+          >
             <div>{description}</div>
-            <button onClick={() => setTodos(todos.filter(t => t.id !== id))}>✅</button>
+            <button onClick={() => remove(id)}>✅</button>
           </div>
         ))}
       </div>

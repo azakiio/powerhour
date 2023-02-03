@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Defaults */
 html {
   font-size: var(--font-size);
+}
+
+.prose-bg {
+  @apply prose prose-code:bg-base-200;
 }
 
 body {
@@ -13,10 +18,12 @@ body {
 ::-webkit-scrollbar {
   width: 15px;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: none;
 }
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border: 3px solid rgba(0, 0, 0, 0);
@@ -24,6 +31,7 @@ body {
   border-radius: 1rem;
   background-color: rgba(101, 101, 101, 0.5);
 }
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   border: 3px solid rgba(0, 0, 0, 0);
@@ -41,16 +49,19 @@ body {
     --font-size: 17px;
   }
 }
+
 @media (min-width: 768px) {
   :root {
     --font-size: 18px;
   }
 }
+
 @media (min-width: 992px) {
   :root {
     --font-size: 19px;
   }
 }
+
 @media (min-width: 1200px) {
   :root {
     --font-size: 20px;

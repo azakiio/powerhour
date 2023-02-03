@@ -1,3 +1,4 @@
+import EnterAnimation from "./EnterAnimation";
 import Intro from "./Intro";
 import ListExample from "./ListExample";
 import MotionComponent from "./MotionComponent";
@@ -20,6 +21,10 @@ export const slides = [
   {
     title: "Motion Components",
     component: <MotionComponentChanges />,
+  },
+  {
+    title: "Entry Animation",
+    component: <EnterAnimation />,
   },
   {
     title: "List Example",

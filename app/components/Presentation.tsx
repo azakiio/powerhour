@@ -10,10 +10,10 @@ export default function Presentation() {
 
   useEffect(() => {
     const toggleCode = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
+      if (e.key === "[") {
         navigate(`/?page=${Math.max(page - 1, 0)}`);
       }
-      if (e.key === "ArrowRight") {
+      if (e.key === "]") {
         navigate(`/?page=${Math.min(page + 1, slides.length - 1)}`);
       }
     };
@@ -27,10 +27,10 @@ export default function Presentation() {
     <AnimatePresence mode="wait">
       <motion.div
         key={page}
-        initial={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="container mx-auto p-8 py-24 min-h-screen flex relative overflow-clip flex-col max-w-screen-xl items-center"
+        initial={{ opacity: 0, }}
+        exit={{ opacity: 0, }}
+        animate={{ opacity: 1, }}
+        className="container mx-auto p-8 py-20 min-h-screen flex overflow-clip flex-col max-w-screen-xl items-center"
       >
         <div className="absolute text-lg font-bold self-end">
           Page: {page} / {slides.length - 1}

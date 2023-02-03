@@ -7,11 +7,11 @@ export default function Outline() {
       <blockquote className="text-base-content/80">
         Use{" "}
         <kbd className="kbd kbd-sm">
-          <FaArrowLeft />
+          {`[`}
         </kbd>
         {` and `}
         <kbd className="kbd kbd-sm">
-          <FaArrowRight />
+          {']'}
         </kbd>{" "}
         to navigate between pages
       </blockquote>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import CodeSnippet from "~/components/CodeSnippet";
+
 import { MotionComponentCode } from "./codeSample";
 import Input from "./Input";
 
@@ -16,13 +16,16 @@ export default function MotionComponentChanges() {
       <h1>
         The <code>animate</code> prop
       </h1>
-      <div className="flex flex-wrap justify-center items-center gap-12">
+      <figure>
         <motion.div
-          className="w-60 h-60 border-4 border-primary border-dashed rounded-lg"
+          className="w-60 h-60 border-4 border-primary border-dashed rounded-lg mx-auto"
           animate={{ x, y, rotate, scale }}
           transition={{ type: "spring" }}
         />
-        <div className="flex flex-col w-64 items-center z-10">
+      </figure>
+      <div className="grid grid-cols-[2fr,1fr] items-center gap-12">
+        <CodeSnippet>{MotionComponentCode({ x, y, scale, rotate })}</CodeSnippet>
+        <div className="flex flex-col items-center z-10">
           <Input value={x} set={setX}>
             x
           </Input>
@@ -38,19 +41,8 @@ export default function MotionComponentChanges() {
         </div>
       </div>
       <p>
-        Elements will animate when the values passed to <code>animate</code>{" "}
-        change
+        Elements will animate when the values passed to <code>animate</code> change
       </p>
-      <div className="text-sm overflow-auto rounded-lg ">
-        <SyntaxHighlighter
-          language="jsx"
-          style={materialDark}
-          showLineNumbers={true}
-          customStyle={{ borderRadius: "1rem" }}
-        >
-          {MotionComponentCode}
-        </SyntaxHighlighter>
-      </div>
     </div>
   );
 }

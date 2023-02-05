@@ -1,8 +1,9 @@
+import AnimateProp from "./AnimateProp";
 import EnterAnimation from "./EnterAnimation";
+import HeroExample from "./HeroExample";
 import Intro from "./Intro";
 import ListExample from "./ListExample";
 import MotionComponent from "./MotionComponent";
-import MotionComponentChanges from "./MotionComponentChanges";
 import Outline from "./Outline";
 
 export const slides = [
@@ -19,12 +20,16 @@ export const slides = [
     component: <MotionComponent />,
   },
   {
-    title: "Motion Components",
-    component: <MotionComponentChanges />,
-  },
-  {
     title: "Entry Animation",
     component: <EnterAnimation />,
+  },
+  {
+    title: "Hero Animation",
+    component: <HeroExample />,
+  },
+  {
+    title: "Animate Props",
+    component: <AnimateProp />,
   },
   {
     title: "List Example",

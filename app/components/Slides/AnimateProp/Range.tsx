@@ -7,7 +7,7 @@ interface InputProps {
   step?: number;
 }
 
-export default function Input({
+export default function Range({
   value,
   children,
   set,

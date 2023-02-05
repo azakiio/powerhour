@@ -1,6 +1,6 @@
 export default function Intro() {
   return (
-    <div className="prose">
+    <div className="slide">
       <h1>Framer Motion</h1>
       <p>
         Framer Motion is a production-ready motion library for React made by{" "}

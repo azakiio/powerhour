@@ -3,16 +3,16 @@ import { useState } from "react";
 import CodeSnippet from "~/components/CodeSnippet";
 
 import { MotionComponentCode } from "./codeSample";
-import Input from "./Input";
+import Range from "./Range";
 
-export default function MotionComponentChanges() {
+export default function AnimateProp() {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [scale, setScale] = useState(1);
   const [rotate, setRotate] = useState(0);
 
   return (
-    <div className="prose w-full prose-code:bg-base-200">
+    <div className="slide">
       <h1>
         The <code>animate</code> prop
       </h1>
@@ -24,24 +24,27 @@ export default function MotionComponentChanges() {
         />
       </figure>
       <div className="grid grid-cols-[2fr,1fr] items-center gap-12">
-        <CodeSnippet>{MotionComponentCode({ x, y, scale, rotate })}</CodeSnippet>
+        <CodeSnippet>
+          {MotionComponentCode({ x, y, scale, rotate })}
+        </CodeSnippet>
         <div className="flex flex-col items-center z-10">
-          <Input value={x} set={setX}>
+          <Range value={x} set={setX}>
             x
-          </Input>
-          <Input value={y} set={setY}>
+          </Range>
+          <Range value={y} set={setY}>
             y
-          </Input>
-          <Input value={scale} set={setScale} min={0.5} max={2} step={0.1}>
+          </Range>
+          <Range value={scale} set={setScale} min={0.5} max={2} step={0.1}>
             scale
-          </Input>
-          <Input value={rotate} set={setRotate} min={-180} max={180}>
+          </Range>
+          <Range value={rotate} set={setRotate} min={-180} max={180}>
             rotate
-          </Input>
+          </Range>
         </div>
       </div>
       <p>
-        Elements will animate when the values passed to <code>animate</code> change
+        Elements will animate when the values passed to <code>animate</code>{" "}
+        change
       </p>
     </div>
   );

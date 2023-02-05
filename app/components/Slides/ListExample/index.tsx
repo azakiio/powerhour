@@ -28,7 +28,7 @@ export default function ListExample() {
   };
 
   return (
-    <div className="prose">
+    <div className="slide">
       <h1>List Example</h1>
       <div className="flex gap-4 flex-wrap">
         <div className="flex-1 prose">

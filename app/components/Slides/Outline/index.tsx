@@ -1,19 +1,11 @@
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
 export default function Outline() {
   return (
-    <div className="prose self-start prose-code:bg-base-200">
+    <div className="slide">
       <h1>Outline</h1>
       <blockquote className="text-base-content/80">
-        Use{" "}
-        <kbd className="kbd kbd-sm">
-          {`[`}
-        </kbd>
+        Use <kbd className="kbd kbd-sm">{`[`}</kbd>
         {` and `}
-        <kbd className="kbd kbd-sm">
-          {']'}
-        </kbd>{" "}
-        to navigate between pages
+        <kbd className="kbd kbd-sm">{"]"}</kbd> to navigate between pages
       </blockquote>
       <h3>Simple Animations</h3>
       <ul>
@@ -54,6 +46,11 @@ export default function Outline() {
             <li>Interactive example</li>
             <li>Gesture Events</li>
             <li>Use-cases (why not use css here?)</li>
+            <li>
+              <a href="https://dribbble.com/shots/3773846-Hero-Image-freebie-Radio">
+                example
+              </a>
+            </li>
             <ul>
               <li>Spring physics</li>
               <li>

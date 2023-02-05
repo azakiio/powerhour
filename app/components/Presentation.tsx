@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "@remix-run/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { slides } from "./Slides";
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function Presentation() {
   const [searchParams] = useSearchParams();
@@ -27,14 +27,11 @@ export default function Presentation() {
     <AnimatePresence mode="wait">
       <motion.div
         key={page}
-        initial={{ opacity: 0, }}
-        exit={{ opacity: 0, }}
-        animate={{ opacity: 1, }}
-        className="container mx-auto p-8 py-20 min-h-screen flex overflow-clip flex-col max-w-screen-xl items-center"
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="mx-auto min-h-screen flex overflow-clip flex-col items-center"
       >
-        <div className="absolute text-lg font-bold self-end">
-          Page: {page} / {slides.length - 1}
-        </div>
         {slides[page].component}
       </motion.div>
     </AnimatePresence>

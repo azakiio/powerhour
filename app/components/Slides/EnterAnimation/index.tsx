@@ -1,27 +1,51 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import CodeSnippet from "~/components/CodeSnippet";
+import { codeSample1 } from "./codeSample";
+import { GrRotateLeft } from "react-icons/gr";
 
 export default function EnterAnimation() {
   const [reset, setReset] = useState(0);
 
   return (
-    <div className="prose-bg">
-      <h1>Enter Animation</h1>
+    <div className="slide">
+      <h1>Intro Animations</h1>
       <p>
-        When a <code>motion</code> component is mounted, it'll automatically animate to the values
-        in <code>animate</code> if they're different from those defined in <code>style</code> or{" "}
-        <code>initial</code>.
+        When a <code>motion</code> component is mounted, it will automatically
+        animate to the values in <code>animate</code> if they're different from
+        what's defined in <code>style</code> or <code>initial</code>.
       </p>
-      <figure>
-        <motion.div
-          key={reset}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, transition: { type: "spring" } }}
-          className="w-40 h-40 rounded-full bg-primary"
-        />
-      </figure>
-      <button onClick={() => setReset(reset + 1)}>reset</button>
-      <p>You can set the initial prop to false to disable enter animations.</p>
+      <section className="flex gap-12 items-stretch">
+        <figure className="flex flex-col justify-between">
+          <motion.div
+            key={reset}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              transition: { type: "spring" },
+            }}
+            className="w-40 h-40 rounded-full bg-primary"
+          />
+          <button
+            className="btn btn-primary mt-auto self-center"
+            onClick={() => setReset(reset + 1)}
+          >
+            <GrRotateLeft className="text-lg" />
+          </button>
+        </figure>
+        <CodeSnippet style={{ flex: "2" }}>{codeSample1}</CodeSnippet>
+      </section>
+      <p>
+        Think of initial and animate as CSS objects that define the starting
+        state and ending state of your animation.
+      </p>
+
+      <h4>Before we go on, can we just appreciate how simple it can be.</h4>
+      <ul>
+        <li>clean declarative syntax (no css classes)</li>
+        <li>looks very smooth out of the box (no easings/duration)</li>
+      </ul>
     </div>
   );
 }

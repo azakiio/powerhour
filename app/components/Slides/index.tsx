@@ -1,9 +1,11 @@
 import AnimateProp from "./AnimateProp";
 import EnterAnimation from "./EnterAnimation";
+import Gestures from "./EnterAnimation copy";
 import HeroBreakdown from "./HeroBreakdown";
 import HeroExample from "./HeroExample";
 import Intro from "./Intro";
 import ListExample from "./ListExample";
+import ListExampleMotion from "./ListExampleMotion";
 import MotionComponent from "./MotionComponent";
 import Outline from "./Outline";
 
@@ -39,5 +41,13 @@ export const slides = [
   {
     title: "List Example",
     component: <ListExample />,
+  },
+  {
+    title: "List Example Proper",
+    component: <ListExampleMotion />,
+  },
+  {
+    title: "Gestures",
+    component: <Gestures />,
   },
 ];

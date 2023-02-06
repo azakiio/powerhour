@@ -28,10 +28,9 @@ export default function Presentation() {
       <motion.div
         key={page}
         initial={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
+        exit={{ opacity: 0, transition: { duration: 0 } }}
         animate={{ opacity: 1 }}
-        className="mx-auto min-h-screen flex overflow-clip flex-col items-center"
-      >
+        className="mx-auto min-h-screen flex overflow-clip flex-col items-center">
         {slides[page].component}
       </motion.div>
     </AnimatePresence>

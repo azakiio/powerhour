@@ -11,12 +11,14 @@ export default function EnterAnimation() {
     <div className="slide">
       <h1>Intro Animations</h1>
       <p>
-        When a <code>motion</code> component is mounted, it will automatically
-        animate to the values in <code>animate</code> if they're different from
-        what's defined in <code>style</code> or <code>initial</code>.
+        When a <code>motion</code> component is mounted, it will automatically animate to the values
+        in <code>animate</code> if they're different from what's defined in <code>style</code> or{" "}
+        <code>initial</code>.
       </p>
-      <section className="flex gap-12 items-stretch">
-        <figure className="flex flex-col justify-between">
+      <section className="flex gap-10 items-stretch">
+        <figure
+          className="flex flex-col justify-between items-center flex-[1]"
+          style={{ marginBottom: "0.5em" }}>
           <motion.div
             key={reset}
             initial={{ scale: 0, opacity: 0 }}
@@ -28,17 +30,16 @@ export default function EnterAnimation() {
             className="w-40 h-40 rounded-full bg-primary"
           />
           <button
-            className="btn btn-primary mt-auto self-center"
-            onClick={() => setReset(reset + 1)}
-          >
+            className="btn btn-primary btn-square self-end"
+            onClick={() => setReset(reset + 1)}>
             <GrRotateLeft className="text-lg" />
           </button>
         </figure>
-        <CodeSnippet style={{ flex: "2" }}>{codeSample1}</CodeSnippet>
+        <CodeSnippet style={{ flex: "1" }}>{codeSample1}</CodeSnippet>
       </section>
       <p>
-        Think of initial and animate as CSS objects that define the starting
-        state and ending state of your animation.
+        Think of initial and animate as CSS objects that define the starting state and ending state
+        of your animation.
       </p>
 
       <h4>Before we go on, can we just appreciate how simple it can be.</h4>

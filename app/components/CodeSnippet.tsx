@@ -7,8 +7,8 @@ export default function CodeSnippet({ children, style }: CodeSnippetProps) {
       language="jsx"
       style={materialDark}
       showLineNumbers={true}
-      customStyle={{ borderRadius: "1rem", fontSize: "1rem", ...style }}
-    >
+      lineNumberStyle={i => ({ paddingRight: i < 10 ? "1.6em" : "1em" })}
+      customStyle={{ borderRadius: "1rem", fontSize: "0.875rem", ...style }}>
       {children}
     </SyntaxHighlighter>
   );

@@ -26,12 +26,12 @@ export default function MotionComponent() {
         <li>Animate elements entering the viewport</li>
         <li>Deeply animate throughout React trees via variants</li>
       </ul>
-      <small>
+      {/* <small>
         notes: The motion component is the bread and butter of this library.
         Think of it as a plain HTML or SVG element, supercharged with animation
         capabilities. Animating a dom element comes down to converting it to the
         corresponding motion component. And passing props
-      </small>
+      </small> */}
     </div>
   );
 }

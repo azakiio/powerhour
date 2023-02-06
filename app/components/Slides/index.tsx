@@ -1,5 +1,6 @@
 import AnimateProp from "./AnimateProp";
 import EnterAnimation from "./EnterAnimation";
+import HeroBreakdown from "./HeroBreakdown";
 import HeroExample from "./HeroExample";
 import Intro from "./Intro";
 import ListExample from "./ListExample";
@@ -26,6 +27,10 @@ export const slides = [
   {
     title: "Hero Animation",
     component: <HeroExample />,
+  },
+  {
+    title: "Hero Breakdown",
+    component: <HeroBreakdown />,
   },
   {
     title: "Animate Props",

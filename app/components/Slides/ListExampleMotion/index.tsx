@@ -55,7 +55,7 @@ export default function ListExampleMotion() {
                 <motion.div
                   layout
                   key={id}
-                  className="border py-2 px-4 flex justify-between gap-4]"
+                  className="border py-2 px-4 flex justify-between gap-4"
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 100 }}>

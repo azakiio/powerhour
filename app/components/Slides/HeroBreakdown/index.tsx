@@ -36,7 +36,7 @@ function Example1() {
   const [reset, setReset] = useState(0);
   return (
     <>
-      <figure key={`bg-${reset}`} className="w-[32rem] relative overflow-clip rounded-xl mx-auto">
+      <figure key={`bg-${reset}`} className="relative overflow-clip rounded-xl mx-auto">
         <motion.img
           src={bg}
           className="w-full"

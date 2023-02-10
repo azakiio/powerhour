@@ -1,7 +1,8 @@
-import { useNavigate, useSearchParams } from "@remix-run/react";
+import { Link, useNavigate, useSearchParams } from "@remix-run/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { slides } from "./Slides";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function Presentation() {
   const [searchParams] = useSearchParams();
@@ -30,8 +31,23 @@ export default function Presentation() {
         initial={{ opacity: 0 }}
         exit={{ opacity: 0, transition: { duration: 0 } }}
         animate={{ opacity: 1 }}
-        className="mx-auto min-h-screen flex overflow-clip flex-col items-center">
+        className="flex flex-col items-center min-h-screen overflow-clip relative">
         {slides[page].component}
+        <div className="absolute bottom-4 flex gap-8 items-center">
+          <Link
+            to={`/?page=${Math.max(page - 1, 0)}`}
+            className="btn btn-primary btn-circle btn-sm">
+            <FaArrowLeft />
+          </Link>
+          <div>
+            {page} / {slides.length - 1}
+          </div>
+          <Link
+            to={`/?page=${Math.min(page + 1, slides.length - 1)}`}
+            className="btn btn-primary btn-circle btn-sm">
+            <FaArrowRight />
+          </Link>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

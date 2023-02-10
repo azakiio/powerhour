@@ -6,6 +6,7 @@ import { GrRotateLeft } from "react-icons/gr";
 
 export default function EnterAnimation() {
   const [reset, setReset] = useState(0);
+  const [active, setActive] = useState(false);
 
   return (
     <div className="slide">
@@ -47,6 +48,9 @@ export default function EnterAnimation() {
         <li>clean declarative syntax (no css classes)</li>
         <li>looks very smooth out of the box (no easings/duration)</li>
       </ul>
+      <button onClick={() => setActive(!active)}>Start</button>
+      <div className="cssBox" style={{ transform: `translateX(${active ? "200" : "0"}px)` }}></div>
+      <div className="cssBox" style={{ transform: `translateX(${active ? "200" : "0"}px)` }}></div>
     </div>
   );
 }

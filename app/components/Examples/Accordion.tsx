@@ -9,11 +9,16 @@ export default function Accordion({ title, content }: AccordionProps) {
     <div className="border-b py-4">
       <button
         onClick={() => setActive(!active)}
-        className="flex items-center justify-between w-full">
+        className="flex items-center justify-between w-full"
+      >
         <div className="text-lg font-bold">{title}</div>
         <motion.div
-          animate={{ rotate: active ? -180 : 0, transition: { type: "spring" } }}
-          className="text-xl">
+          animate={{
+            rotate: active ? -180 : 0,
+            transition: { type: "spring" },
+          }}
+          className="text-xl"
+        >
           <FaCaretDown />
         </motion.div>
       </button>
@@ -24,7 +29,8 @@ export default function Accordion({ title, content }: AccordionProps) {
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            transition={{ type: "spring", damping: 20 }}>
+            transition={{ type: "spring", damping: 20 }}
+          >
             <div className="pt-4">{content}</div>
           </motion.div>
         )}
@@ -41,12 +47,12 @@ export function AccordionExample() {
         content="I love cheese, especially say cheese manchego. Croque monsieur cut the cheese hard cheese feta gouda paneer smelly cheese queso. Ricotta macaroni cheese cream cheese mascarpone st. agur blue cheese pepper jack chalk and cheese cheese slices. Cheeseburger mozzarella lancashire dolcelatte rubber cheese."
       />
       <Accordion
-        title="Also an accordion"
-        content="I love cheese, especially say cheese manchego. Croque monsieur cut the cheese hard cheese feta gouda paneer smelly cheese queso. Ricotta macaroni cheese cream cheese mascarpone st. agur blue cheese pepper jack chalk and cheese cheese slices. Cheeseburger mozzarella lancashire dolcelatte rubber cheese."
+        title="Meetings 🐝"
+        content="Make it a priority we don't need to boil the ocean here, let's circle back tomorrow. Pre launch we need a recap by eod, cob or whatever comes first. You must be muted, move the needle, where do we stand on the latest client ask? Today shall be a cloudy day, thanks to blue sky thinking"
       />
       <Accordion
-        title="I'm just here to complete the trifecta"
-        content="Parmesan feta cheeseburger. Gouda feta st. agur blue cheese fromage frais paneer feta lancashire camembert de normandie. Bocconcini jarlsberg brie monterey jack when the cheese comes out everybody's happy cheese and wine lancashire chalk and cheese. Cheddar."
+        title="Clients ☕"
+        content={`That's great, but can you make it work for ie 2. Are you busy this weekend? I know this is the final release but can we add more features. Thanks for taking the time to make the website, but i already made it in wix. Can you put "find us on facebook" by the facebook logo?`}
       />
     </div>
   );

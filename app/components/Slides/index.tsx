@@ -1,4 +1,5 @@
 import AnimateProp from "./AnimateProp";
+import CssExamples from "./CssAnimations";
 import EnterAnimation from "./EnterAnimation";
 import Gestures from "./EnterAnimation copy";
 import HeroBreakdown from "./HeroBreakdown";
@@ -17,6 +18,10 @@ export const slides = [
   {
     title: "Intro",
     component: <Intro />,
+  },
+  {
+    title: "CSS",
+    component: <CssExamples />,
   },
   {
     title: "Motion Component",

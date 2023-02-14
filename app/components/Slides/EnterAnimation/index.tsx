@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import { useState } from "react";
 import CodeSnippet from "~/components/CodeSnippet";
 import { codeSample1 } from "./codeSample";
@@ -16,6 +17,7 @@ export default function EnterAnimation() {
         in <code>animate</code> if they're different from what's defined in <code>style</code> or{" "}
         <code>initial</code>.
       </p>
+
       <section className="flex gap-10 items-stretch">
         <figure
           className="flex flex-col justify-between items-center flex-[1]"
@@ -26,7 +28,7 @@ export default function EnterAnimation() {
             animate={{
               scale: 1,
               opacity: 1,
-              transition: { type: "spring" },
+              transition: { ease: [0.25, 0.1, 0.25, 1], delay: 1 },
             }}
             className="w-40 h-40 rounded-full bg-primary"
           />
@@ -48,9 +50,10 @@ export default function EnterAnimation() {
         <li>clean declarative syntax (no css classes)</li>
         <li>looks very smooth out of the box (no easings/duration)</li>
       </ul>
-      <button onClick={() => setActive(!active)}>Start</button>
-      <div className="cssBox" style={{ transform: `translateX(${active ? "200" : "0"}px)` }}></div>
-      <div className="cssBox" style={{ transform: `translateX(${active ? "200" : "0"}px)` }}></div>
+      <section>
+        <button onClick={() => setActive(!active)}>Start</button>
+        <div className={`box ${active ? "box-visible" : "box-invisible"}`}>hello</div>
+      </section>
     </div>
   );
 }

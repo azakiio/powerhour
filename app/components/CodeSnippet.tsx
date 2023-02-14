@@ -1,10 +1,10 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-export default function CodeSnippet({ children, style }: CodeSnippetProps) {
+export default function CodeSnippet({ children, style, language = "jsx" }: CodeSnippetProps) {
   return (
     <SyntaxHighlighter
-      language="jsx"
+      language={language}
       style={materialDark}
       showLineNumbers={true}
       lineNumberStyle={i => ({ paddingRight: i < 10 ? "1.6em" : "1em" })}
@@ -17,4 +17,5 @@ export default function CodeSnippet({ children, style }: CodeSnippetProps) {
 type CodeSnippetProps = {
   children: string;
   style?: React.CSSProperties;
+  language?: string;
 };

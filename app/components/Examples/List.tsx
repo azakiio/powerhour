@@ -10,7 +10,7 @@ export default function List({ enabled = true }) {
   return (
     <div>
       <h2 className="flex gap-6">
-        <div>My Favourite Movies</div>
+        <div>Your Favourites</div>
         <button
           className="btn btn-sm btn-primary text-sm normal-case flex gap-2"
           onClick={() => {

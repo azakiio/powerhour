@@ -1,58 +1,27 @@
+import Outline from "./0_Outline";
+import Intro from "./1_WhyAnimations";
+import CssExamples from "./2_CssAnimations";
+import MotionComponent from "./3_MotionComponent";
+import IntroAnimation from "./4_IntroAnimation";
+import IntroExample from "./5_IntroExample";
 import AnimateProp from "./AnimateProp";
-import CssExamples from "./CssAnimations";
-import EnterAnimation from "./EnterAnimation";
-import Gestures from "./EnterAnimation copy";
+import Gestures from "./Gestures";
 import HeroBreakdown from "./HeroBreakdown";
 import HeroExample from "./HeroExample";
-import Intro from "./Intro";
 import ListExample from "./ListExample";
 import ListExampleMotion from "./ListExampleMotion";
-import MotionComponent from "./MotionComponent";
-import Outline from "./Outline";
 
 export const slides = [
-  {
-    title: "Outline",
-    component: <Outline />,
-  },
-  {
-    title: "Intro",
-    component: <Intro />,
-  },
-  {
-    title: "CSS",
-    component: <CssExamples />,
-  },
-  {
-    title: "Motion Component",
-    component: <MotionComponent />,
-  },
-  {
-    title: "Entry Animation",
-    component: <EnterAnimation />,
-  },
-  {
-    title: "Hero Animation",
-    component: <HeroExample />,
-  },
-  {
-    title: "Hero Breakdown",
-    component: <HeroBreakdown />,
-  },
-  {
-    title: "Animate Props",
-    component: <AnimateProp />,
-  },
-  {
-    title: "List Example",
-    component: <ListExample />,
-  },
-  {
-    title: "List Example Proper",
-    component: <ListExampleMotion />,
-  },
-  {
-    title: "Gestures",
-    component: <Gestures />,
-  },
+  <Outline />,
+  <Intro />,
+  <CssExamples />,
+  <MotionComponent />,
+  <IntroAnimation />,
+  <IntroExample />,
+  // <HeroExample />,
+  // <HeroBreakdown />,
+  <AnimateProp />,
+  <ListExample />,
+  <ListExampleMotion />,
+  <Gestures />,
 ];

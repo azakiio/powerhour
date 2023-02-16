@@ -1,8 +1,8 @@
 import { Link, useNavigate, useSearchParams } from "@remix-run/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
-import { slides } from "./Slides";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { slides } from "./Slides";
 
 export default function Presentation() {
   const [searchParams] = useSearchParams();
@@ -31,8 +31,8 @@ export default function Presentation() {
         initial={{ opacity: 0 }}
         exit={{ opacity: 0, transition: { duration: 0 } }}
         animate={{ opacity: 1 }}
-        className="flex flex-col items-center min-h-screen overflow-clip relative">
-        {slides[page].component}
+        className="flex flex-col items-center min-h-screen relative">
+        {slides[page]}
         <div className="absolute bottom-4 flex gap-8 items-center">
           <Link
             to={`/?page=${Math.max(page - 1, 0)}`}

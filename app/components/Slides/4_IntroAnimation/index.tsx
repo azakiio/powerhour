@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 import { useState } from "react";
+import { GrRotateLeft } from "react-icons/gr";
 import CodeSnippet from "~/components/CodeSnippet";
 import { codeSample1 } from "./codeSample";
-import { GrRotateLeft } from "react-icons/gr";
 
-export default function EnterAnimation() {
+export default function IntroAnimations() {
   const [reset, setReset] = useState(0);
   const [active, setActive] = useState(false);
 

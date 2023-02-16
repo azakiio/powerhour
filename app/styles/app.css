@@ -39,7 +39,6 @@ html {
 }
 
 .box-invisible {
-  visibility: hidden;
   transition-duration: 0.3s;
   transform: scale(0);
   opacity: 0;
@@ -49,6 +48,7 @@ html {
   transition-duration: 0.3s;
   transform: scale(1);
   opacity: 1;
+  @apply bg-primary;
 }
 
 body {

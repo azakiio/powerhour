@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { movies } from "./movies";
 import { CgClose } from "react-icons/cg";
 import { FaFilm } from "react-icons/fa";
+import { movies } from "./movies";
 let uid = 3;
 
 export default function List({ enabled = true }) {

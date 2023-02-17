@@ -12,6 +12,7 @@ html {
 }
 
 .box {
+  transition-property: transform, background-color;
   width: 5rem;
   height: 5rem;
   @apply rounded-lg;
@@ -28,14 +29,14 @@ html {
   @apply bg-secondary;
 }
 .box-state-2 {
-  transition-duration: 1s;
+  transition-duration: 3s;
   transform: translate3d(40vmin, 0px, 0px) rotate(90deg);
   @apply bg-accent;
 }
 .box-state-3 {
   transition-duration: 1s;
   transform: translate3d(60vmin, 0px, 0px) rotate(135deg);
-  @apply bg-warning;
+  @apply bg-neutral;
 }
 
 .box-invisible {

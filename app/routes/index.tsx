@@ -1,6 +1,6 @@
-import { MetaFunction } from "@remix-run/node";
-import Presentation from "~/components/Presentation";
-import { slides } from "~/components/Slides";
+import type { MetaFunction } from "@remix-run/node";
+import Presentation from "~/lib/Presentation";
+import { slides } from "~/lib/Slides";
 
 export const meta: MetaFunction = ({ location }) => {
   const page = new URLSearchParams(location.search).get("page") || 0;

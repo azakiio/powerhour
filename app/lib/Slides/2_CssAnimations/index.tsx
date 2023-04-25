@@ -1,18 +1,29 @@
 import { useState } from "react";
-import CodeSnippet from "~/components/CodeSnippet";
-import Range from "../AnimateProp/Range";
-import { oneState, multipleStates } from "./codeSample";
+import CodeSnippet from "~/lib/CodeSnippet";
+import { multipleStates, oneState } from "./codeSample";
 
 export default function CssExamples() {
   const [animState, setAnimState] = useState<0 | 1 | 2 | 3>(0);
+  const [isVisible, setVisible] = useState(false);
 
   return (
     <div className="slide">
       <h1>Animations in CSS</h1>
-      <p>
-        Pretty straight forward, show intro example. it's actually a decent api
-      </p>
-      <CodeSnippet language="css">{oneState}</CodeSnippet>
+      <section className="flex gap-10 items-stretch">
+        <figure
+          className="flex flex-col justify-around items-center flex-[1]"
+          style={{ marginBottom: "0.5em" }}
+        >
+          <div className={`box box-${isVisible ? "visible" : "initial"}`} />
+          <button onClick={() => setVisible(!isVisible)} className="btn">
+            Toggle State
+          </button>
+        </figure>
+        <CodeSnippet language="scss" style={{ flex: 2 }}>
+          {oneState}
+        </CodeSnippet>
+      </section>
+
       <p>Show multiple states, explain issues</p>
       <ul>
         <li>maintain mapping of classes in react</li>
@@ -23,7 +34,7 @@ export default function CssExamples() {
         <CodeSnippet language="scss">{multipleStates(animState)}</CodeSnippet>
         <div className="btn-group">
           <button onClick={() => setAnimState(0)} className="btn">
-            Initial
+            State 0
           </button>
           <button onClick={() => setAnimState(1)} className="btn">
             State 1
@@ -43,12 +54,6 @@ export default function CssExamples() {
         We've all seen something like this before. first specify the property
         that will Animate next we specify the duration and optionally,
       </p>
-      {/* <div
-        className="cssBox ease-out"
-        style={{ transform: `translateX(${active ? "200" : "0"}px) rotate(30deg)` }}></div>
-      <div
-        className="cssBox ease-linear"
-        style={{ transform: `translateX(${active ? "400" : "0"}px) rotate(30deg)` }}></div> */}
     </div>
   );
 }

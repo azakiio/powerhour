@@ -1,0 +1,39 @@
+.box {
+  transition-property: all;
+  width: 5rem;
+  height: 5rem;
+  @apply rounded-lg bg-primary;
+}
+
+.box-state-0 {
+  transition-duration: 1s;
+  transform: translate3d(0px, 0px, 0px);
+  @apply bg-primary;
+}
+.box-state-1 {
+  transition-duration: 1s;
+  transform: translate3d(20vmin, 0px, 0px) rotate(45deg);
+  @apply bg-secondary;
+}
+.box-state-2 {
+  transition-duration: 3s;
+  transform: translate3d(40vmin, 0px, 0px) rotate(90deg);
+  @apply bg-accent;
+}
+.box-state-3 {
+  transition-duration: 1s;
+  transform: translate3d(60vmin, 0px, 0px) rotate(135deg);
+  @apply bg-neutral;
+}
+
+.box-initial {
+  transition-duration: 0.5s;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.box-visible {
+  transition-duration: 1s;
+  transform: scale(1);
+  opacity: 1;
+}

@@ -1,4 +1,4 @@
-import CodeSnippet from "~/components/CodeSnippet";
+import CodeSnippet from "~/lib/CodeSnippet";
 import { codeSample } from "./codeSample";
 
 export default function MotionComponent() {

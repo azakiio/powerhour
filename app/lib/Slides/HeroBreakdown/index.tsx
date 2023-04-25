@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { GrRotateLeft } from "react-icons/gr";
-import CodeSnippet from "~/components/CodeSnippet";
+import CodeSnippet from "~/lib/CodeSnippet";
 import { paths } from "../HeroExample/logoPaths";
 import { BackgroundCode, LinksCode } from "./codeSample";
 import Logo from "./logo";

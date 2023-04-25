@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import CodeSnippet from "~/components/CodeSnippet";
+import CodeSnippet from "~/lib/CodeSnippet";
 
 import { MotionComponentCode } from "./codeSample";
 import Range from "./Range";

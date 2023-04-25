@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import colors from "daisyui/src/colors/themes";
 
 export default function Toggle({ enabled = true, active, setActive }: ToggleProps) {
   const [backupActive, setBackupActive] = useState(false);
@@ -12,7 +13,7 @@ export default function Toggle({ enabled = true, active, setActive }: ToggleProp
       onClick={() => (setActive ? setActive(!active) : setBackupActive(!backupActive))}
       className={`flex w-10 rounded-xl`}
       animate={{
-        backgroundColor: active ? "hsl(141.18 50% 60%)" : "hsl(219.23 20.312% 25.098% / 0.3)",
+        backgroundColor: active ? colors["[data-theme=emerald]"].primary : "hsl(219.23 20.312% 25.098% / 0.3)",
         transition: enabled ? {} : { duration: 0 },
       }}
       style={{

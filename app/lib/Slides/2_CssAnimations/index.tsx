@@ -1,30 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
-import { multipleStates, oneState } from "./codeSample";
+import { oneState, reactCode } from "./codeSample";
+import { GrRotateLeft } from "react-icons/gr";
 
 export default function CssExamples() {
-  const [animState, setAnimState] = useState<0 | 1 | 2 | 3>(0);
-  const [isVisible, setVisible] = useState(false);
+  // const [animState, setAnimState] = useState<0 | 1 | 2 | 3>(0);
+  const [activeClass, setActiveClass] = useState("toaster-hidden");
+
+  useEffect(() => {
+    setActiveClass("toaster-visible");
+  }, []);
 
   return (
-    <div className="slide">
-      <h1>Animations in CSS</h1>
-      <section className="flex gap-10 items-stretch">
-        <figure
-          className="flex flex-col justify-around items-center flex-[1]"
-          style={{ marginBottom: "0.5em" }}
+    <div className="slide !max-w-screen-lg">
+      <h1>Intro Animations</h1>
+      <figure
+        className="flex flex-col justify-around items-center gap-8"
+        style={{ marginBottom: "0.5em" }}
+      >
+        <button
+          onClick={() => setActiveClass("toaster-hidden")}
+          className={["toaster", activeClass].join(" ")}
         >
-          <div className={`box box-${isVisible ? "visible" : "initial"}`} />
-          <button onClick={() => setVisible(!isVisible)} className="btn">
-            Toggle State
-          </button>
-        </figure>
-        <CodeSnippet language="scss" style={{ flex: 2 }}>
-          {oneState}
-        </CodeSnippet>
+          Toast is ready! (click me to hide)
+        </button>
+        <button
+          onClick={() => setActiveClass("toaster-visible")}
+          className="btn"
+        >
+          <GrRotateLeft className="text-lg" />
+        </button>
+      </figure>
+      <section className="flex gap-2">
+        <CodeSnippet language="scss">{oneState}</CodeSnippet>
+        <CodeSnippet>{reactCode}</CodeSnippet>
       </section>
-
-      <p>Show multiple states, explain issues</p>
+      # Points about intro Animations - People don't like to wait before they
+      can interact with your site, long intro animations can be frustrating -
+      Usually when people hear intro
+      {/* <p>Show multiple states, explain issues</p>
       <ul>
         <li>maintain mapping of classes in react</li>
         <li>how to remove an element from the dom?</li>
@@ -53,7 +67,7 @@ export default function CssExamples() {
       <p>
         We've all seen something like this before. first specify the property
         that will Animate next we specify the duration and optionally,
-      </p>
+      </p> */}
     </div>
   );
 }

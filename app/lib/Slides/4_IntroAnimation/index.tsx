@@ -21,8 +21,7 @@ export default function IntroAnimations() {
       <section className="flex gap-10 items-stretch">
         <figure
           className="flex flex-col justify-between items-center flex-[1]"
-          style={{ marginBottom: "0.5em" }}
-        >
+          style={{ marginBottom: "0.5em" }}>
           <motion.div
             key={reset}
             initial={{ scale: 0, opacity: 0 }}
@@ -35,8 +34,7 @@ export default function IntroAnimations() {
           />
           <button
             className="btn btn-primary btn-square self-end"
-            onClick={() => setReset(reset + 1)}
-          >
+            onClick={() => setReset(reset + 1)}>
             <GrRotateLeft className="text-lg" />
           </button>
         </figure>

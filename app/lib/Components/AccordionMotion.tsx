@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 export default function AccordionMotion({
   title,
-  content,
+  children,
   enabled,
 }: AccordionProps) {
   const [active, setActive] = useState(false);
@@ -37,7 +37,7 @@ export default function AccordionMotion({
               enabled ? { type: "spring", damping: 20 } : { duration: 0 }
             }
           >
-            <div className="pt-4">{content}</div>
+            <div className="pt-4">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -47,6 +47,6 @@ export default function AccordionMotion({
 
 type AccordionProps = {
   title: string;
-  content: string;
+  children: ReactNode;
   enabled?: boolean;
 };

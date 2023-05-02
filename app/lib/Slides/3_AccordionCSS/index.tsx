@@ -1,7 +1,8 @@
+import { useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
 import AccordionCSS from "~/lib/Components/AccordionCSS";
-import { marginTopCSS, maxHeightCSS, heightCSS } from "./codeSample";
-import { useState } from "react";
+import FormInput from "~/lib/Components/FormInput";
+import { marginTopCSS, maxHeightCSS } from "./codeSample";
 
 export default function IntroExample() {
   const [stuff, setStuff] = useState(0);
@@ -15,8 +16,7 @@ export default function IntroExample() {
         <AccordionCSS
           title="I'm a negative margin accordion"
           closedState={{ marginTop: "-100%" }}
-          openState={{ marginTop: "0" }}
-        >
+          openState={{ marginTop: "0" }}>
           <CodeSnippet language="scss">{marginTopCSS}</CodeSnippet>
           <p>
             The problem is, percentage margins are based on the element's width.
@@ -27,14 +27,12 @@ export default function IntroExample() {
           <div className="flex gap-4">
             <button
               onClick={() => setStuff(stuff + 1)}
-              className="btn btn-success btn-sm"
-            >
+              className="btn btn-success btn-sm">
               Add Stuff
             </button>
             <button
               onClick={() => setStuff(0)}
-              className="btn btn-warning btn-sm"
-            >
+              className="btn btn-warning btn-sm">
               Reset Stuff
             </button>
           </div>
@@ -45,25 +43,20 @@ export default function IntroExample() {
         <AccordionCSS
           title="I'm a max-height accordion"
           closedState={{ maxHeight: "0" }}
-          openState={{ maxHeight: maxHeight }}
-        >
+          openState={{ maxHeight: maxHeight }}>
           <div className="pt-4" />
           <CodeSnippet language="scss">{maxHeightCSS(maxHeight)}</CodeSnippet>
           <p>
             Animate to some <code>max-height</code> that's larger than your
             accordion
           </p>
-          <label className="input-group">
-            <span>max-height</span>
-            <input
-              className="input input-bordered input-sm"
-              type="text"
-              value={maxHeight}
-              onInput={(e) => {
-                setMaxHeight(e.currentTarget.value);
-              }}
-            />
-          </label>
+          <FormInput
+            title="max-height"
+            value={maxHeight}
+            changeHandler={(e) => {
+              setMaxHeight(e.currentTarget.value);
+            }}
+          />
           <p>
             The problem: if the max-height is too small, the content will be
             hidden (and we don't know what the content will be) so to be safe we
@@ -74,8 +67,7 @@ export default function IntroExample() {
         <AccordionCSS
           title="I'm a fixed height accordion"
           closedState={{ height: "0" }}
-          openState={{ height: height }}
-        >
+          openState={{ height: height }}>
           animate height from 0 to a fixed number. Animation is correct but
           problem is you are forced to use a fixed height.
         </AccordionCSS>

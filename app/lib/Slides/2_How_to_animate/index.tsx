@@ -1,8 +1,7 @@
 import { CSSProperties, useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
-import { multipleStates } from "./codeSample";
 import FormInput from "~/lib/Components/FormInput";
-import AccordionMotion from "~/lib/Components/AccordionMotion";
+import { multipleStates } from "./codeSample";
 
 export default function AnimationsBreakdown() {
   const [animState, setAnimState] = useState<0 | 1 | 2 | 3>(0);
@@ -33,21 +32,22 @@ export default function AnimationsBreakdown() {
           className={`box box-state-${animState}`}
           style={transitionObject}
         />
+        <div className="btn-group pt-6">
+          <button onClick={() => setAnimState(0)} className="btn btn-sm">
+            State 0
+          </button>
+          <button onClick={() => setAnimState(1)} className="btn btn-sm">
+            State 1
+          </button>
+          <button onClick={() => setAnimState(2)} className="btn btn-sm">
+            State 2
+          </button>
+          <button onClick={() => setAnimState(3)} className="btn btn-sm">
+            State 3
+          </button>
+        </div>
       </figure>
-      <div className="btn-group">
-        <button onClick={() => setAnimState(0)} className="btn btn-sm">
-          State 0
-        </button>
-        <button onClick={() => setAnimState(1)} className="btn btn-sm">
-          State 1
-        </button>
-        <button onClick={() => setAnimState(2)} className="btn btn-sm">
-          State 2
-        </button>
-        <button onClick={() => setAnimState(3)} className="btn btn-sm">
-          State 3
-        </button>
-      </div>
+
       <CodeSnippet language="scss">
         {multipleStates(animState, transitionObject)}
       </CodeSnippet>
@@ -60,6 +60,7 @@ export default function AnimationsBreakdown() {
         </li>
         <li>
           It takes 4 parameters, but only <code>transition-duration</code> is
+          required
         </li>
         <li>
           I've always heard <code>transition-property</code> was required, but

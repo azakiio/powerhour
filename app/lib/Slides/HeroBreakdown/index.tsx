@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { GrRotateLeft } from "react-icons/gr";
 import CodeSnippet from "~/lib/CodeSnippet";
-import { paths } from "../HeroExample/logoPaths";
+import { paths } from "./logoPaths";
 import { BackgroundCode, LinksCode } from "./codeSample";
 import Logo from "./logo";
 import bg from "./street.jpg";
@@ -22,7 +22,11 @@ export default function HeroBreakdown() {
       <h1>Hero Breakdown</h1>
       <div className="flex gap-4 justify-center">
         {examples.map(({ title }, i) => (
-          <button key={title} onClick={() => setExampleIndex(i)} className="btn btn-sm">
+          <button
+            key={title}
+            onClick={() => setExampleIndex(i)}
+            className="btn btn-sm"
+          >
             {title}
           </button>
         ))}
@@ -36,7 +40,10 @@ function Example1() {
   const [reset, setReset] = useState(0);
   return (
     <>
-      <figure key={`bg-${reset}`} className="relative overflow-clip rounded-xl mx-auto">
+      <figure
+        key={`bg-${reset}`}
+        className="relative overflow-clip rounded-xl mx-auto"
+      >
         <motion.img
           src={bg}
           className="w-full"
@@ -50,7 +57,8 @@ function Example1() {
         />
         <button
           onClick={() => setReset(reset + 1)}
-          className="absolute bottom-4 right-4 btn btn-ghost btn-circle btn-sm text-white">
+          className="absolute bottom-4 right-4 btn btn-ghost btn-circle btn-sm text-white"
+        >
           <GrRotateLeft className="text-lg" />
         </button>
       </figure>
@@ -63,7 +71,10 @@ function Example2() {
   const [reset, setReset] = useState(0);
   return (
     <>
-      <figure key={`bg-${reset}`} className="w-[32rem] relative rounded-xl mx-auto border-4">
+      <figure
+        key={`bg-${reset}`}
+        className="w-[32rem] relative rounded-xl mx-auto border-4"
+      >
         <div className="flex gap-4 text-white text-lg pt-8 pb-14 justify-center">
           {links.map((link, i) => (
             <motion.a
@@ -75,14 +86,16 @@ function Example2() {
                 opacity: 1,
                 y: 0,
                 transition: { delay: 1 + i * 0.2, type: "spring" },
-              }}>
+              }}
+            >
               {link}
             </motion.a>
           ))}
         </div>
         <button
           onClick={() => setReset(reset + 1)}
-          className="absolute bottom-1 right-1 btn btn-ghost btn-circle btn-sm">
+          className="absolute bottom-1 right-1 btn btn-ghost btn-circle btn-sm"
+        >
           <GrRotateLeft className="text-lg" />
         </button>
       </figure>
@@ -95,12 +108,16 @@ function Example3() {
   const [reset, setReset] = useState(0);
   return (
     <>
-      <figure key={`bg-${reset}`} className="w-[32rem] relative rounded-xl mx-auto py-10">
+      <figure
+        key={`bg-${reset}`}
+        className="w-[32rem] relative rounded-xl mx-auto py-10"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="299.5 0 193 31"
           stroke="#000"
-          strokeWidth={1}>
+          strokeWidth={1}
+        >
           {paths.map((path, i) => (
             <motion.path
               key={i}
@@ -122,7 +139,8 @@ function Example3() {
         </svg>
         <button
           onClick={() => setReset(reset + 1)}
-          className="absolute bottom-1 right-1 btn btn-ghost btn-circle btn-sm">
+          className="absolute bottom-1 right-1 btn btn-ghost btn-circle btn-sm"
+        >
           <GrRotateLeft className="text-lg" />
         </button>
       </figure>

@@ -32,34 +32,29 @@
 
 .toaster-hidden {
   transition-duration: 0.2s;
-  transform: translateY(30px);
+  transform: translateY(100%);
   opacity: 0;
-  /* display: none; */
+}
+
+.toaster-hidden-v2 {
+  transition-duration: 0.2s;
+  transform: translateY(100%);
+  opacity: 0;
+  display: none;
 }
 
 .toaster-visible {
   transition-duration: 0.5s;
   transform: translateY(0);
   opacity: 1;
-  /* display: block; */
 }
 
 .toaster-exit {
-  transition-duration: 0.5s;
-  transform: scale(0);
-  opacity: 0;
-}
-
-.toaster-hidden_v2 {
   transition-duration: 0.2s;
-  transform: translateY(30px) scale(1);
+  transform: translateY(0) scale(0);
   opacity: 0;
-  display: none;
 }
 
-.toaster-visible_v2 {
-  transition-duration: 0.5s;
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  display: block;
+.toaster-none {
+  display: none;
 }

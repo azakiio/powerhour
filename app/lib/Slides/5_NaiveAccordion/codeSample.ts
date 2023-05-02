@@ -21,3 +21,13 @@ export const heightCSS = (value: string) => `.closed {
 .open {
   height: ${value};
 }`;
+
+export const AccordionCode = `<div className="accordion">
+  <button onClick={() => setActive(!active)}>
+    <div className="title">{title}</div>
+  </button>
+
+  <div className={isOpen ? 'open' : 'closed'}>
+    {children}
+  </div>
+</div>`;

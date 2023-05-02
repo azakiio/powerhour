@@ -43,6 +43,10 @@
   display: none;
 }
 
+.toaster-none {
+  display: none;
+}
+
 .toaster-visible {
   transition-duration: 0.5s;
   transform: translateY(0);
@@ -53,8 +57,4 @@
   transition-duration: 0.2s;
   transform: translateY(0) scale(0);
   opacity: 0;
-}
-
-.toaster-none {
-  display: none;
 }

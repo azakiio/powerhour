@@ -3,7 +3,7 @@ import CodeSnippet from "~/lib/CodeSnippet";
 import FormInput from "~/lib/Components/FormInput";
 import { multipleStates } from "./codeSample";
 
-export default function AnimationsBreakdown() {
+export default function HowToAnimate() {
   const [animState, setAnimState] = useState<0 | 1 | 2 | 3>(0);
   const [transitionObject, setTransitionObject] = useState<CSSProperties>({});
 

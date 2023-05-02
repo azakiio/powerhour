@@ -23,7 +23,7 @@ export default function HeroExample() {
         animate={{ scale: 1, transition: { duration: 3 } }}
       />
       <motion.div
-        className="absolute inset-0 bg-black/40 z-[-1]"
+        className="absolute inset-0 bg-black/60 z-[-1]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       />

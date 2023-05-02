@@ -1,29 +1,33 @@
 import Outline from "./0_Outline";
-import Intro from "./1_WhyAnimations";
-import CssExamples from "./4_Toast";
-import IntroExample from "./3_AccordionCSS";
-import IntroAnimation from "./4_IntroAnimation";
-import MotionComponent from "./4_MotionComponent";
+import WhyAnimations from "./1_WhyAnimations";
+import HowToAnimate from "./2_HowToAnimate";
+import HeroExample from "./3_HeroExample";
+import ToastExample from "./4_ToastExample";
+import NaiveAccordion from "./5_NaiveAccordion";
+import AccordionExample from "./6_AccordionExample";
+
 import AnimateProp from "./AnimateProp";
-import AnimationsBreakdown from "./2_How_to_animate";
 import Gestures from "./Gestures";
 import HeroBreakdown from "./HeroBreakdown";
-import HeroExample from "./3_HeroExample";
+import IntroAnimation from "./IntroAnimation";
 import LayoutAnimations from "./LayoutAnimations";
 import ListExample from "./ListExample";
 import ListExampleMotion from "./ListExampleMotion";
+import MotionComponent from "./MotionComponent";
 import MenuExample from "./Variants";
 let uid = 0;
 
 export const slides = [
   <Outline key={uid++} />,
-  <Intro key={uid++} />,
-  <AnimationsBreakdown key={uid++} />,
+  <WhyAnimations key={uid++} />,
+  <HowToAnimate key={uid++} />,
   <HeroExample key={uid++} />,
-  <CssExamples key={uid++} />,
+  <ToastExample key={uid++} />,
+  <NaiveAccordion key={uid++} />,
+  <AccordionExample key={uid++} />,
+
   <MotionComponent key={uid++} />,
   <IntroAnimation key={uid++} />,
-  <IntroExample key={uid++} />,
   <HeroBreakdown key={uid++} />,
   <AnimateProp key={uid++} />,
   <ListExample key={uid++} />,

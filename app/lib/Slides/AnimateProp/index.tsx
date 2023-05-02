@@ -29,7 +29,15 @@ export default function AnimateProp() {
       </figure>
       <div className="grid grid-cols-[1fr,1fr] items-center gap-12">
         <CodeSnippet>
-          {MotionComponentCode({ x, y, scale, rotate, stiffness, damping, mass })}
+          {MotionComponentCode({
+            x,
+            y,
+            scale,
+            rotate,
+            stiffness,
+            damping,
+            mass,
+          })}
         </CodeSnippet>
         <div className="flex flex-col items-center z-10">
           <Range value={x} set={setX}>
@@ -60,7 +68,8 @@ export default function AnimateProp() {
         </div>
       </div>
       <p>
-        Elements will animate when the values passed to <code>animate</code> change
+        Elements will animate when the values passed to <code>animate</code>{" "}
+        change
       </p>
     </div>
   );

@@ -31,12 +31,14 @@ export default function Presentation() {
         initial={{ opacity: 0 }}
         exit={{ opacity: 0, transition: { duration: 0 } }}
         animate={{ opacity: 1 }}
-        className="flex flex-col items-center min-h-screen relative">
+        className="flex flex-col items-center min-h-screen relative"
+      >
         {slides[page]}
         <div className="absolute bottom-4 flex gap-8 items-center">
           <Link
             to={`/?page=${Math.max(page - 1, 0)}`}
-            className="btn btn-primary btn-circle btn-sm">
+            className="btn btn-primary btn-circle btn-sm"
+          >
             <FaArrowLeft />
           </Link>
           <div>
@@ -44,7 +46,8 @@ export default function Presentation() {
           </div>
           <Link
             to={`/?page=${Math.min(page + 1, slides.length - 1)}`}
-            className="btn btn-primary btn-circle btn-sm">
+            className="btn btn-primary btn-circle btn-sm"
+          >
             <FaArrowRight />
           </Link>
         </div>

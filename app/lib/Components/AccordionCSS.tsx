@@ -18,7 +18,7 @@ export default function AccordionCSS({
         <div className="text-lg font-bold">{title}</div>
         <div
           className="text-xl duration-1000"
-          style={active ? { rotate: '-180deg' } : { rotate: '0deg' }}
+          style={active ? { rotate: "-180deg" } : { rotate: "0deg" }}
         >
           <FaCaretDown />
         </div>

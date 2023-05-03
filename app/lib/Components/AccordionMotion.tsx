@@ -5,7 +5,7 @@ import { FaCaretDown } from "react-icons/fa";
 export default function AccordionMotion({
   title,
   children,
-  enabled,
+  enabled = true,
 }: AccordionProps) {
   const [active, setActive] = useState(false);
 

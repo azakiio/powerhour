@@ -20,52 +20,16 @@ export default function ToastExample() {
     <div className="slide">
       <h1>Intro Animations</h1>
 
-      <ul>
-        <li>Here's a different kind of intro animation.</li>
-        <li>
-          This is a case where it makes sense to draw the user's attention to a
-          new element on the screen
-        </li>
-        <li>
-          The animation is quick, simple, and doesn't get in the way of
-          interacting with the rest of the site
-        </li>
-      </ul>
-
-      <AccordionTitle title="Let's build a toaster">
-        <section className="flex gap-x-4 flex-wrap items-center">
-          <CodeSnippet language="scss">{toast_v1}</CodeSnippet>
-          <div className="flex flex-col gap-2 flex-1">
-            <ul>
-              <li>
-                Starts with <code>.toast-hidden</code>
-              </li>
-              <li>
-                onMount, add <code>.toast-visible</code>
-              </li>
-              <li>
-                To hide, back to <code>.toast-hidden</code>
-              </li>
-              <li>
-                Each state has it's own <code>transition</code> properties
-              </li>
-            </ul>
-            <button
-              onClick={() => setToastsRight(toastsRight + 1)}
-              className="btn btn-primary gap-2"
-            >
-              <span>More</span> <GiToaster className="text-lg" />
-            </button>
-            <button
-              onClick={() => setToastsRight(0)}
-              className="btn btn-warning"
-            >
-              Clear All
-            </button>
-          </div>
-        </section>
-        <CodeSnippet>{reactCode}</CodeSnippet>
-      </AccordionTitle>
+      <CodeSnippet language="scss">{toast_v1}</CodeSnippet>
+      <button
+        onClick={() => setToastsRight(toastsRight + 1)}
+        className="btn btn-primary gap-2"
+      >
+        <span>More</span> <GiToaster className="text-lg" />
+      </button>
+      <button onClick={() => setToastsRight(0)} className="btn btn-warning">
+        Clear All
+      </button>
 
       <AccordionTitle title="What's wrong with our Toaster?">
         <section className="flex gap-x-4 flex-wrap items-center">

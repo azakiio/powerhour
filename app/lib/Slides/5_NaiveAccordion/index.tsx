@@ -1,42 +1,65 @@
 import { useEffect, useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
-import AccordionCSS from "~/lib/Components/AccordionCSS";
-import FormInput from "~/lib/Components/FormInput";
-import { AccordionCode, marginTopCSS, maxHeightCSS } from "./codeSample";
+import { AccordionCode, CSSAccordion, CSSAccordionStyles } from "./codeSample";
 
 export default function NaiveAccordion() {
   const [height, setHeight] = useState("auto");
-  const [active, setActive] = useState(false);
   const [scale, setScale] = useState(0);
 
+  const [isOpen_1, setOpen_1] = useState(false);
+  const [isOpen_2, setOpen_2] = useState(false);
+
   useEffect(() => {
-    if (active) {
+    if (isOpen_1) {
       setScale(1);
     } else {
       setScale(0);
     }
-  }, [active]);
+  }, [isOpen_1]);
 
   return (
     <div className="slide">
       <h1>Accordions!</h1>
 
-      <CodeSnippet>{AccordionCode}</CodeSnippet>
+      <figure>
+        <div className="accordion">
+          <button onClick={() => setOpen_1(!isOpen_1)}>
+            <div className="font-bold text-lg">Accordion Approach #1</div>
+          </button>
 
-      <div className="accordion">
-        <button onClick={() => setActive(!active)}>
-          <div className="font-bold text-lg">{"title"}</div>
-        </button>
+          {isOpen_1 && (
+            <div>
+              <p>
+                The <b>Conditional Rendering</b> accordion
+              </p>
+              <CodeSnippet>{AccordionCode}</CodeSnippet>
+            </div>
+          )}
+        </div>
+      </figure>
 
-        {active && (
-          <div
-            className="duration-700"
-            style={{ transform: `scaleY(${scale})`, transformOrigin: "top" }}
-          >
-            Lot's of content here, Very important stuff
+      <figure>
+        <div className="accordion">
+          <button onClick={() => setOpen_2(!isOpen_2)}>
+            <div className="font-bold text-lg">Accordion Approach #2</div>
+          </button>
+
+          <div className="hidden aria-expanded:block" aria-expanded={isOpen_2}>
+            <p>
+              The <b>CSS</b> accordion
+            </p>
+            <CodeSnippet>{CSSAccordion}</CodeSnippet>
+            <CodeSnippet language="scss">{CSSAccordionStyles}</CodeSnippet>
           </div>
-        )}
-      </div>
+        </div>
+      </figure>
+
+      <p>Which approach would you go with?</p>
+
+      {/* <p>
+        Conditional Rendering is more straightforward, but the CSS approach is
+        quite a bit easier to animate
+      </p> */}
 
       {/* <AccordionCSS
         title="I'm a naive accordion"

@@ -2,34 +2,60 @@ import { useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
 import AccordionCSS from "~/lib/Components/AccordionCSS";
 import FormInput from "~/lib/Components/FormInput";
-import { AccordionCode, marginTopCSS, maxHeightCSS } from "./codeSample";
+import {
+  AccordionCode,
+  displayNone,
+  heightCSS,
+  marginTopCSS,
+  maxHeightCSS,
+} from "./codeSample";
 
 export default function AccordionExample() {
   const [stuff, setStuff] = useState(0);
   const [maxHeight, setMaxHeight] = useState("500px");
   const [height, setHeight] = useState("auto");
-  const [active, setActive] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <div className="slide">
-      <h1>Accordions!</h1>
+      <h1>CSS Accordion</h1>
+
+      <p>
+        Let's focus on just the content for a second, how would you go about
+        animating it?
+      </p>
 
       <CodeSnippet>{AccordionCode}</CodeSnippet>
-
-      <div className="accordion">
-        <button onClick={() => setActive(!active)}>
-          <div className="font-bold text-lg">{"title"}</div>
-        </button>
-
-        <div className={active ? "h-full" : "h-0"}>{"children"}</div>
-      </div>
 
       <AccordionCSS
         title="I'm a naive accordion"
         closedState={{ height: "0" }}
         openState={{ height: height }}
       >
-        Animate <code>height</code> from 0 to <code>auto</code>
+        <div className="pt-4" />
+        <CodeSnippet language="scss">{heightCSS(height)}</CodeSnippet>
+        <ul>
+          <li>
+            Animating <code>height</code> is the most straightforward
+          </li>
+          <li>
+            Unfortunately, you can't animate <code>auto</code> in CSS
+          </li>
+          <li>
+            What about <code>height: 100%</code>
+          </li>
+          {/* <li>
+            Animating to fixed height works, but then you either have a very
+            limited accordion or you have to use JS
+          </li> */}
+        </ul>
+        <FormInput
+          title="height"
+          value={height}
+          changeHandler={(e) => {
+            setHeight(e.currentTarget.value);
+          }}
+        />
       </AccordionCSS>
 
       <AccordionCSS
@@ -63,6 +89,7 @@ export default function AccordionExample() {
           <p key={i}>I'm stuff</p>
         ))}
       </AccordionCSS>
+
       <AccordionCSS
         title="I'm a max-height accordion"
         closedState={{ maxHeight: "0" }}
@@ -87,6 +114,26 @@ export default function AccordionExample() {
           set a large max-height, this messes up the transition (because it's
           transitioning to the full max-height)
         </p>
+      </AccordionCSS>
+
+      <AccordionCSS
+        title="I don't even work"
+        closedState={{ maxHeight: "0", display: "none" }}
+        openState={{ maxHeight: "1000px", display: "block" }}
+      >
+        <div className="pt-4" />
+        <CodeSnippet language="scss">{displayNone(maxHeight)}</CodeSnippet>
+        <p>
+          Also a <code>max-height</code> accordion, but with{" "}
+          <code>display: none</code> when closed so my lil children can't be
+          focused
+        </p>
+        <ul>
+          <li>
+            Can't animate <code>display</code> in CSS
+          </li>
+          <li>There are some workarounds but none are pretty</li>
+        </ul>
       </AccordionCSS>
     </div>
   );

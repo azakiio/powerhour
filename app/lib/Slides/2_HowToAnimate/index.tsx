@@ -64,8 +64,7 @@ export default function HowToAnimate() {
         </li>
         <li>
           I've always heard <code>transition-property</code> was required, but
-          it defaults to <code>all</code>{" "}
-          <em>(though you should still set it explicitly)</em>
+          guess not <span className="whitespace-nowrap">¯\_(ツ)_/¯</span>
         </li>
       </ul>
 

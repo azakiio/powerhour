@@ -6,6 +6,7 @@ export default function AccordionCSS({
   children,
   closedState,
   openState,
+  hideOverflow = true,
 }: Props) {
   const [active, setActive] = useState(false);
 
@@ -17,13 +18,13 @@ export default function AccordionCSS({
       >
         <div className="text-lg font-bold">{title}</div>
         <div
-          className="text-xl duration-1000"
-          style={active ? { rotate: "-180deg" } : { rotate: "0deg" }}
+          className="text-xl duration-1000 aria-expanded:rotate-180"
+          aria-expanded={active}
         >
           <FaCaretDown />
         </div>
       </button>
-      <div className="overflow-hidden">
+      <div className={hideOverflow ? "overflow-hidden" : ""}>
         <div className="duration-1000" style={active ? openState : closedState}>
           {children}
         </div>
@@ -37,4 +38,5 @@ type Props = {
   children: ReactNode;
   closedState: CSSProperties;
   openState: CSSProperties;
+  hideOverflow?: boolean;
 };

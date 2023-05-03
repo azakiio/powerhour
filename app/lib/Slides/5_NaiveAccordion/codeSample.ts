@@ -22,12 +22,37 @@ export const heightCSS = (value: string) => `.closed {
   height: ${value};
 }`;
 
-export const AccordionCode = `<div className="accordion">
-  <button onClick={() => setActive(!active)}>
-    <div className="title">{title}</div>
+export const AccordionCode = `const [isOpen, setOpen] = useState(false);
+
+<div className="accordion">
+  <button onClick={() => setOpen(!isOpen)}>
+    <div>{title}</div>
   </button>
 
-  <div className={isOpen ? 'open' : 'closed'}>
+  {isOpen && (
+    <div>
+      {children}
+    </div>
+  )}
+</div>`;
+
+export const CSSAccordion = `<div className="accordion">
+  <button onClick={() => setOpen(!isOpen)}>
+    <div>{title}</div>
+  </button>
+
+  <div 
+    className="accordion-content" 
+    aria-expanded={isOpen}
+  >
     {children}
   </div>
 </div>`;
+
+export const CSSAccordionStyles = `.accordion-content {
+  display: none;
+}
+
+.accordion-content[aria-expanded="true"] {
+  display: block;
+}`;

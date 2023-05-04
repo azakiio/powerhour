@@ -1,8 +1,11 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   future: {
-    unstable_tailwind: true,
+    v2_routeConvention: true,
+    v2_normalizeFormMethod: true,
+    // unstable_dev: true,
   },
+  tailwind: true,
   serverBuildTarget: "vercel",
   serverDependenciesToBundle: ["lodash-es"],
   // When running locally in development mode, we use the built in remix

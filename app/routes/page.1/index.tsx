@@ -1,7 +1,9 @@
 import { useState } from "react";
+import CodeSnippet from "~/lib/CodeSnippet";
 import { AccordionExample } from "~/lib/Examples/FramerAccordions";
 import List from "~/lib/Examples/List";
 import Toggle from "~/lib/Examples/Toggle";
+import { sideBar } from "../page.13/codeSample";
 
 export default function Intro() {
   const [enableAnims, setEnableAnims] = useState(false);
@@ -9,6 +11,10 @@ export default function Intro() {
   return (
     <div className="slide">
       <h1>Why Animations?</h1>
+      <p>
+        Essentially, animations allow us to communicate with users without text
+        and across cultures and languages.
+      </p>
       <p>
         Interacting with most modern websites, involves many state changes.
         Usually, as a result of some user action.
@@ -18,6 +24,8 @@ export default function Intro() {
         <Toggle enabled={enableAnims} />
         <figcaption>Flipping a toggle (on or off)</figcaption>
       </figure>
+
+      <h3>Switching between these states happens instantly.</h3>
       <figure>
         <AccordionExample enabled={enableAnims} />
         <figcaption>Opening an accordion (open or closed)</figcaption>
@@ -28,30 +36,17 @@ export default function Intro() {
           Adding or removing an item from a list (array of current items)
         </figcaption>
       </figure>
-      <h4>
-        By default, switching between these discrete states happens instantly.
-      </h4>
       <p>
-        It's jarring and sometimes hard to keep track of what just happened.
-        Things in the real world don't behave like that
-      </p>
-      <div>
         Let's enable animations and try those examples again.
         <Toggle active={enableAnims} setActive={setEnableAnims} />
-      </div>
-      <p>
-        In design psychology, there's this idea of{" "}
-        <a href="https://www.uxpin.com/studio/blog/cognitive-psychology-for-ux-design/">
-          cognitive load
-        </a>
-        {", "}
-        which essentially means the amount of mental effort required to interact
-        with your application. Animations, when done well, can reduce that
-        cognitive load by providing context, familiarity, and consistency.
       </p>
       <p>
-        By simulating the experience of interacting with (familiar) physical
-        objects, the interface becomes more pleasant to work with.
+        That communication can come in the form of feedback for an action, (like
+        shown above) or just keeping the user informed of what's happening.
+      </p>
+      <p>
+        Animations (when done well) minimize the mental effort required to use a
+        digital product by providing context, familiarity, and consistency.
       </p>
     </div>
   );

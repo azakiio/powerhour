@@ -51,9 +51,8 @@ export default function IntroAnimations() {
       <h4>Transitions</h4>
       <p>
         Motion components also accept a <code>transition</code> prop which is
-        similar to a css transition but with a few differences.
+        similar to a css transition but with a few differences:
       </p>
-      <p>One of them is the default value:</p>
       <CodeSnippet language="js">{codeSample2}</CodeSnippet>
       <p>
         By default, Motion will create an appropriate animation for a snappy
@@ -74,7 +73,11 @@ export default function IntroAnimations() {
       <h4>Triggers</h4>
       <p>
         Animation is triggered <code>onMount</code>{" "}
-        <img src={accordionImg} className="w-6 inline-flex !my-0 ml-2" />
+        <img
+          src={accordionImg}
+          className="w-6 inline-flex !my-0 ml-2"
+          alt="accordion"
+        />
       </p>
     </div>
   );

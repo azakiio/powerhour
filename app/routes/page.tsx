@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import {
   Link,
   Outlet,
+  V2_MetaFunction,
   useLocation,
   useNavigate,
   useOutlet,
@@ -10,9 +11,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-export const meta: MetaFunction = ({ location }) => {
+export const meta: V2_MetaFunction = ({ location }) => {
   const page = location.pathname.split("/").at(-1) || 0;
-  return { title: `Motion - Page: ${page}` };
+  return [{ title: `Motion - Page: ${page}` }];
 };
 
 export default function Page() {

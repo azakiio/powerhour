@@ -10,7 +10,7 @@ export const codeSample1 = `<motion.div
   }}
 />`;
 
-export const codeSample2 = `transitionOptions = {
+export const codeSample2 = `defaultTransition = {
   type: "spring",
   duration: 0.3,
 }`;

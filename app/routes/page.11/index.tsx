@@ -31,13 +31,15 @@ export default function AnimateProp() {
       <h1>Transitions</h1>
       <b>
         The <code>transition</code> prop defines how values animate from one
-        state to another.
+        state to another
       </b>
       <p>
         There's a whole bunch of options here, and I encourage you to check out
-        the <a href="https://www.framer.com/motion/transition/">full list</a>.
-        For now, we'll focus on the main ones:
+        the{" "}
+        <a href="https://www.framer.com/motion/transition/">transition docs</a>{" "}
+        for all the details
       </p>
+      <p>For now, we'll focus on the main ones:</p>
 
       <h2>Type</h2>
       <div className="grid grid-cols-[20%,1fr] items-center gap-4 my-6">
@@ -57,7 +59,7 @@ export default function AnimateProp() {
           transition={{ type: "tween", duration, ease: undefined }}
         />
 
-        <span className="text-accent font-bold">Spring (props)</span>
+        <span className="text-accent font-bold">Spring</span>
         <motion.div
           className="w-16 h-16 bg-accent rounded-lg"
           variants={variants}
@@ -65,18 +67,24 @@ export default function AnimateProp() {
           transition={{ type: "spring", stiffness, damping, mass }}
         />
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         <button onClick={() => setStart(!isStart)} className="btn btn-square">
           GO!
         </button>
         <div className="flex flex-col items-center">
           <div className="font-bold">Duration</div>
           <div className="flex items-center gap-2">
-            <button className="btn btn-sm btn-circle">
+            <button
+              onClick={() => setDuration(duration - 0.5)}
+              className="btn btn-sm btn-circle btn-ghost"
+            >
               <FaMinus />
             </button>
-            <div className="font-bold">{duration}</div>
-            <button className="btn btn-sm btn-circle">
+            <div className="font-bold">{duration.toFixed(1)}</div>
+            <button
+              onClick={() => setDuration(duration + 0.5)}
+              className="btn btn-sm btn-circle btn-ghost"
+            >
               <FaPlus />
             </button>
           </div>
@@ -95,14 +103,13 @@ export default function AnimateProp() {
             </li>
           </ul>
           <CodeSnippet>{TweenType({ duration })}</CodeSnippet>
-          <b>The easing curve</b>
           <p>
             This should look familiar but here's a{" "}
             <a href="https://cubic-bezier.com/">quick overview</a>
           </p>
           <p>
-            My issue with easing curves is that they're hard to visualize, what
-            the animation will look like just based on the parameters
+            It's hard to visualize what the animation will look like just based
+            on the parameters
           </p>
         </div>
 

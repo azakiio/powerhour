@@ -20,10 +20,7 @@ export const sideBar = `<AnimatePresence>
       exit="closed"
     >
       {menuItems.map((item) => (
-        <motion.div 
-          key={item.id} 
-          variants={itemVariants}
-        >
+        <motion.div key={item.id} variants={itemVariants}>
           {item.name}
         </motion.div>
       ))}
@@ -35,14 +32,13 @@ export const sidebarVariants_v1 = `const sidebarVariants = {
   open: {
     opacity: 1,
     x: 0,
-    transition: {
-      type: "spring",
-      damping: 20,
-    },
+    transition: { type: "spring", damping: 20 },
   },
+
   closed: {
     opacity: 0,
     x: "-100%",
+    transition: { type: "spring", damping: 10 }
   },
 };
 
@@ -50,3 +46,23 @@ const itemVariants = {
   open: { opacity: 1, y: 0 },
   closed: { opacity: 0, y: 20 },
 };`;
+
+export const openTransitionCode = (transition: any) => `open: {
+  opacity: 1,
+  x: 0,
+  transition: {
+    type: "spring",
+    damping: 20,
+    ${transition}
+  },
+},`;
+
+export const closeTransitionCode = (transition: any) => `closed: {
+  opacity: 1,
+  x: 0,
+  transition: {
+    type: "spring",
+    damping: 20,
+    ${transition}
+  },
+},`;

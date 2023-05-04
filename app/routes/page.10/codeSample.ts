@@ -11,7 +11,9 @@ export const LayoutExample1 = (
       exit={${isHeight ? "{height: 0}" : "{ opacity: 0, x: 100 }"}}
     >
       <div>{description}</div>
-      <button onClick={() => remove(id)}>check</button>
+      <button onClick={() => remove(id)}>
+        check
+      </button>
     </motion.div>
   ))}
 </AnimatePresence>

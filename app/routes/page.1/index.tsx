@@ -1,20 +1,17 @@
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useState } from "react";
-import CodeSnippet from "~/lib/CodeSnippet";
 import { AccordionExample } from "~/lib/Examples/FramerAccordions";
 import List from "~/lib/Examples/List";
 import Toggle from "~/lib/Examples/Toggle";
-import { sideBar } from "../page.13/codeSample";
 
 export default function Intro() {
   const [enableAnims, setEnableAnims] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { damping: 20 });
 
   return (
     <div className="slide">
       <h1>Why Animations?</h1>
-      <p>
-        Essentially, animations allow us to communicate with users without text
-        and across cultures and languages.
-      </p>
       <p>
         Interacting with most modern websites, involves many state changes.
         Usually, as a result of some user action.
@@ -41,13 +38,22 @@ export default function Intro() {
         <Toggle active={enableAnims} setActive={setEnableAnims} />
       </p>
       <p>
-        That communication can come in the form of feedback for an action, (like
-        shown above) or just keeping the user informed of what's happening.
+        Animations allow us to visually communicate with users across cultures
+        and languages.
       </p>
       <p>
-        Animations (when done well) minimize the mental effort required to use a
-        digital product by providing context, familiarity, and consistency.
+        That communication can be in the form of feedback for an action taken or
+        context about the current state of the application.
       </p>
+      <p>
+        Subtle and relevant animations minimize the mental effort required to
+        use a digital product.
+      </p>
+
+      <motion.div
+        style={{ scaleX, originX: 0 }}
+        className="fixed top-0 left-0 w-screen h-2 bg-primary z-50"
+      />
     </div>
   );
 }

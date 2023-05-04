@@ -6,12 +6,23 @@ export const elementProgress = (
   offset1 = "",
   offset2 = ""
 ) => `const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["${offset1}", "${offset2}"]
-  })
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["${offset1}", "${offset2}"]
+})
+
+return  <div ref={ref}>`;
+
+export const animatingBackground = `const bgColor = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [startingColor, endingColor]
+);
   
-  return  <div ref={ref}>`;
+<motion.div
+  ref={ref}
+  style={{ backgroundColor: bgColor }} 
+/>`;
 
 export const whileInView = `<motion.div
     initial={{ opacity: 0 }}

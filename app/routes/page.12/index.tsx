@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import colors from "daisyui/src/colors/themes";
 import CodeSnippet from "~/lib/CodeSnippet";
-import { codeSample1 } from "./codeSample";
+import { ButtonExample } from "./codeSample";
 
 export default function Gestures() {
   const [gestureState, setGestureState] = useState({
@@ -68,7 +68,18 @@ export default function Gestures() {
         tap gesture receives priority and any properties defined on both will
         remain in their tapped state.
       </p>
-      <h4>Fancy Buttons</h4>
+      <h2>Fancy Buttons</h2>
+      <div className="flex gap-4 justify-between">
+        <motion.button
+          className="px-4 py-2 bg-secondary rounded self-center text-secondary-content"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring" }}
+        >
+          Bouncy Button
+        </motion.button>
+        <CodeSnippet>{ButtonExample}</CodeSnippet>
+      </div>
     </div>
   );
 }

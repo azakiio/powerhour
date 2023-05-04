@@ -19,7 +19,7 @@ export const meta: V2_MetaFunction = ({ location }) => {
 export default function Page() {
   const { pathname } = useLocation();
   const page = parseInt(pathname.split("/").at(-1) || "0");
-  const maxPages = 18;
+  const maxPages = 15;
   const navigate = useNavigate();
   const outlet = useOutlet();
 

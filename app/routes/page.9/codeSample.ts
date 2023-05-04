@@ -28,15 +28,13 @@ export const framer_v1 = `{isOpen && (
   </motion.div>
 )}`;
 
-export const framer_v2 = `<AnimatePresence>
-  {isOpen && (
-    <motion.div             
-      initial={{ height: 0 }}
-      animate={{ height: "auto" }}
-      exit={{ height: 0 }}
-      transition={{ duration: 1 }}
-    >
-      {children}
-    </motion.div>
-  )}
+export const slideshow = `<AnimatePresence initial={false}>
+  <motion.img
+    key={images[activeIndex]}
+    src={images[activeIndex]}
+    initial={{ x: 500, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    exit={{ x: -500, opacity: 0 }}
+    transition={{ type: "spring", damping: 20 }}
+  />
 </AnimatePresence>`;

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
 import CodeSnippet from "~/lib/CodeSnippet";
-import { modalSample } from "./codeSample";
+import { modalSample, slideshow } from "./codeSample";
 
 const images = [
   "https://images.unsplash.com/photo-1658171757201-41b9aa2b3651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -72,30 +72,43 @@ export default function AnimatePresenceExample() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <h2>Slideshow for free</h2>
       <p>
-        In React, changing a component's <code>key</code> makes React treat it
-        as an entirely new component. So the old one is unmounted before the new
-        one is mounted. So by changing the <code>key</code> of a single child of{" "}
+        Changing a component's <code>key</code> makes React treat it as an
+        entirely new component. The old one is unmounted before the new one is
+        mounted.
+      </p>
+
+      <CodeSnippet>{slideshow}</CodeSnippet>
+
+      <p>
+        So by changing the <code>key</code> of a single child of{" "}
         <code>AnimatePresence</code>, we can easily make components like
         slideshows.
       </p>
 
-      <div className="relative w-80 aspect-video">
-        <AnimatePresence initial={false}>
-          <motion.img
-            key={images[activeIndex]}
-            src={images[activeIndex]}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ type: "spring", damping: 20 }}
-            className="absolute !m-0 w-80 aspect-video object-cover"
-          />
-        </AnimatePresence>
+      <div className="flex flex-col gap-4">
+        <div className="relative w-80 aspect-video rounded-lg mx-auto">
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={images[activeIndex]}
+              src={images[activeIndex]}
+              initial={{ x: 500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -500, opacity: 0 }}
+              transition={{ type: "spring", damping: 20 }}
+              className="absolute !m-0 w-80 aspect-video object-cover rounded-lg"
+            />
+          </AnimatePresence>
+        </div>
+        <button
+          className="btn btn-sm btn-primary self-center"
+          onClick={() => setIndex((activeIndex + 1) % images.length)}
+        >
+          Next
+        </button>
       </div>
-      <button onClick={() => setIndex((activeIndex + 1) % images.length)}>
-        Next
-      </button>
     </div>
   );
 }
